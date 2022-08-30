@@ -1,5 +1,6 @@
 <template>
     <div>
+        <weather />
         <the-header />
         <Nuxt />
         <the-footer />
