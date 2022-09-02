@@ -1,11 +1,13 @@
 <template>
-    <div v-if="this.informations" class="weather-card absolute flex px-3 mt-3 ml-3  text-white rounded justify-start items-center">
+    <div v-if="this.informations"
+        class="weather-card absolute flex px-3 mt-3 ml-3  text-white rounded justify-start items-center">
         <div class="icon">
-            <img :src="'http://openweathermap.org/img/wn/' + this.informations.weather.icon + '.png'" class="icon-img">
+            <img :src="'http://openweathermap.org/img/wn/' + this.informations.weather[0].icon + '.png'"
+                class="icon-img">
         </div>
         <div class="info">
-            <div class="city">{{ this.informations.name }}</div>
-            <div class="temp">{{ this.informations.main.temp }}</div>
+            <div class="city">{{  this.informations.name  }}</div>
+            <div class="temp">{{  this.informations.main.temp  }}</div>
         </div>
     </div>
 </template>
@@ -24,9 +26,6 @@ export default {
             .then(res => res.json())
     },
 
-    mounted() {
-        console.log(this.informations)
-    }
-
-
 }
+</script>
+
