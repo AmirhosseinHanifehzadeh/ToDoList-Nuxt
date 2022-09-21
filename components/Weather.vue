@@ -6,13 +6,15 @@
                 class="icon-img">
         </div>
         <div class="info">
-            <div class="city">{{  this.informations.name  }}</div>
+            <div class="city">tehran</div>
             <div class="temp">{{  this.informations.main.temp  }}</div>
         </div>
     </div>
 </template>
 
 <script>
+import { onUnmounted } from 'vue';
+
 export default {
     data() {
         return {
@@ -21,9 +23,10 @@ export default {
         }
     },
 
-    async fetch() {
-        this.informations = await fetch('https://api.openweathermap.org/data/2.5/weather?q=tehran&appid=9b5f36ed48bfe552e2610df7b09605eb&units=metric')
+    beforeMount(){
+        fetch('https://api.openweathermap.org/data/2.5/weather?lat=35.7219&lon=51.3347&appid=9b5f36ed48bfe552e2610df7b09605eb&units=metric')
             .then(res => res.json())
+            .then(data => this.informations = data)
     },
 
 }
